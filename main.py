@@ -11,19 +11,25 @@ def main():
     book_content = get_book_text(book_path)
     num_words = count_words(book_content)
     character_frequencies = get_chars_dict(book_content)
+    sorted_chars_list = chars_dict_to_sorted_list(character_frequencies)
 
-    print(print_report)
+    print_report(book_path, num_words, sorted_chars_list)
 
-def print_report():
-    book_path = "books/frankenstein.txt"
-    book_content = get_book_text(book_path)
-    num_words = count_words(book_content)
-    for char in chars_dict_to_sorted_list(character_frequencies):
-        str.isalpha
 
-    print(f"Found {num_words} total words")
-    print(chars_dict_to_sorted_list(character_frequencies))
-    print(====================END=======================)
+def print_report(book_path, word_count, sorted_chars_list):
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+
+    for char, count in sorted_chars_list:
+        if not char.isalpha():
+            continue
+        print(f"{char}: {count}")
+
+    print("============= END =============")
+
 
 main()
 
